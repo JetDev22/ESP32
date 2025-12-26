@@ -9,10 +9,7 @@
 - Set to Hardware CDC and JTAG and USB CDC On Boot to Enabled (for USB programming)
 
 ## Wifi Code ESP32-S3
-```
-```
-``` 
-```c 
+``` C 
 #include <WiFi.h>
 
 const char* ssid = "Your_SSID";
