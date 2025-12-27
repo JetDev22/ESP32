@@ -12,7 +12,7 @@
 </details>
 <details>
   <summary>Wifi Code Privat Network</summary>
-  ``` c
+  ```
   #include <WiFi.h>
   
   const char* ssid = "Your_SSID";
@@ -34,7 +34,7 @@
 </details>
 <details>
   <summary>Wifi Code for Hotel Wifi</summary>
-  ``` c
+  ```
   #include <WiFi.h>
   #include <esp_wifi.h>
   
