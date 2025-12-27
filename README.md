@@ -1,14 +1,16 @@
 # ESP32
-
-## Arduino IDE Settings for ESP32-S3 N16R8
+<detail>
+<summary>Arduino IDE Settings for ESP32-S3 N16R8</summary>
 - Select ESP32S3 Dev Module
 - Change Flash Size to 16 MB
 - Set to 16MB Flash (3MB APP/9.9MB FATFS)
 - Set to OPI PSRAM (for Octal SPI PSRAM)
 - Set Upload Speed to 921600
 - Set to Hardware CDC and JTAG and USB CDC On Boot to Enabled (for USB programming)
+</detail>
 
-## Wifi Code ESP32-S3
+<detail>
+<summary>Wifi Code Privat Network</summary>
 ``` C 
 #include <WiFi.h>
 
@@ -29,13 +31,10 @@ void setup() {
   Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
 }
-
-void loop() {
-  // Your application logic here
-}
 ```
-
-## Wifi Code ESP32-S3 for Hotel Wifi
+</detail>
+<detail>
+<summary>Wifi Code for Hotel Wifi</summary>
 ``` C 
 #include <WiFi.h>
 #include <esp_wifi.h>
@@ -75,6 +74,6 @@ void loop() {
 }
 ```
 
-# Next 
-```
-```
+# Lilygo T-Embed Plus Screen Example
+``` C
+
