@@ -12,7 +12,8 @@
 </details>
 <details>
   <summary>Wifi Code Privat Network</summary>
-  ```
+  
+  ```c
 #include <WiFi.h>  
 const char* ssid = "Your_SSID";
 const char* password = "Your_Password";
@@ -29,11 +30,14 @@ void setup() {
   Serial.println("\nConnected!");
   Serial.print("IP Address: ");
   Serial.println(WiFi.localIP());
-}```
+}
+```
+
 </details>
 <details>
   <summary>Wifi Code for Hotel Wifi</summary>
-  ```
+
+  ```c
 #include <WiFi.h>
 #include <esp_wifi.h>
   
@@ -65,6 +69,7 @@ void loop() {
   // Your code here
 }
 ```
+
 </details>
 
 # Lilygo T-Embed Plus Screen Example
