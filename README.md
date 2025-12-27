@@ -35,5 +35,46 @@ void loop() {
 }
 ```
 
-## Next
-Test
+## Wifi Code ESP32-S3 for Hotel Wifi
+``` C 
+#include <WiFi.h>
+#include <esp_wifi.h>
+
+// 1. Enter the MAC address of the device (Phone/Laptop) you used to login
+//    Format: {0x00, 0x00, 0x00, 0x00, 0x00, 0x00}
+uint8_t newMACAddress[] = {0xAC, 0x12, 0x34, 0x56, 0x78, 0x9A};
+
+const char* ssid = "Hotel_WiFi_Name";
+const char* password = ""; // Usually empty for open portal networks
+
+void setup() {
+  Serial.begin(115200);
+
+  // 2. Set WiFi mode to Station BEFORE changing MAC
+  WiFi.mode(WIFI_STA);
+
+  // 3. Spoof the MAC address
+  esp_wifi_set_mac(WIFI_IF_STA, &newMACAddress[0]);
+  
+  // 4. Connect
+  WiFi.begin(ssid, password);
+
+  Serial.print("Connecting to Hotel WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  
+  Serial.println("\nConnected! Portal bypassed.");
+  Serial.print("IP Address: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  // Your code here
+}
+```
+
+# Next 
+```
+```
