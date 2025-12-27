@@ -10,7 +10,6 @@
     <li>Set to Hardware CDC and JTAG and USB CDC On Boot to Enabled (for USB programming)</li>
   </ul>
 </details>
-
 <details>
   <summary>Wifi Code Privat Network</summary>
   ``` c
@@ -31,8 +30,7 @@
     Serial.println("\nConnected!");
     Serial.print("IP Address: ");
     Serial.println(WiFi.localIP());
-  }
-  ```
+  }```
 </details>
 <details>
   <summary>Wifi Code for Hotel Wifi</summary>
