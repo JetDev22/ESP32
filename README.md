@@ -1,5 +1,5 @@
 # ESP32
-<img width="300px" src="image.png"><br>This is a collection of code snippets to get started on my ESP32 learning journey. I pre-ordered a Kode Dot and since it will take until mid 2026 for it to arrive, I wanted to get a head start on learning programming the ESP32 in C. Completed code will be uploaded in this repo. I am using a T-Embed C1101 as starting device.
+<img width="300px" src="image.png"><br>This is a collection of code snippets to get started on my ESP32 learning journey. I pre-ordered a Kode Dot and since it will take until mid 2026 for it to arrive, I wanted to get a head start on learning programming the ESP32 in C. Completed code will be uploaded in this repo. I am using a T-Embed CC1101 as starting device.
 ***
 <details>
   <summary>Arduino IDE Settings for ESP32-S3 N16R8</summary>
@@ -74,7 +74,7 @@ void loop() {
 
 </details>
 <details>
-  <summary>T-Embed C1101 Display</summary>
+  <summary>T-Embed CC1101 Display</summary>
 
   ```c
 #include "TFT_eSPI.h" 
@@ -152,7 +152,7 @@ void loop(void)
 ```
 </details>
 <details>
-  <summary>T-Embed C1101 Rotary Encoder</summary>
+  <summary>T-Embed CC1101 Rotary Encoder</summary>
 
   ```c
 #include "TFT_eSPI.h" 
