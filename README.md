@@ -31,11 +31,12 @@
     Serial.println("\nConnected!");
     Serial.print("IP Address: ");
     Serial.println(WiFi.localIP());
-  }```
+  }
+  ```
 </details>
 <details>
   <summary>Wifi Code for Hotel Wifi</summary>
-  ```c
+  ``` c
   #include <WiFi.h>
   #include <esp_wifi.h>
   
@@ -66,9 +67,9 @@
   
   void loop() {
     // Your code here
-  }```
+  }
+  ```
 </details>
 
 # Lilygo T-Embed Plus Screen Example
-``` C
 
