@@ -1,4 +1,5 @@
 # ESP32
+<img width="300px" src="image.png"><br>
 This is a collection of code snippets to get started on my ESP32 learning journey.
 I pre-ordered a Kode Dot and since it will take until mid 2026 for it to arrive,
 I wanted to get a head start on learning programming the ESP32 in C.
