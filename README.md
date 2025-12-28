@@ -236,3 +236,8 @@ void loop(void)
 }
 ```
 </details>
+<details>
+  <summary>Lilygo T-Embed CC1101 Multi Firmware Launcher</summary>
+  A Launcher app that lets you start different Firmwares from SD Card.
+  -> <a href="https://github.com/bmorcelli/Launcher"><b>Launcher on Github</b></a>
+</details>
