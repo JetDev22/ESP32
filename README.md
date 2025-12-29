@@ -126,7 +126,7 @@ void loop() {
 <details>
   <summary>Request BTC Price in EUR and USD No Library</summary>
 
-  ```
+  ```c
 #include <HTTPClient.h>
 
 const char* serverName = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur";
