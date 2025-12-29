@@ -74,9 +74,10 @@ void loop() {
 
 </details>
 <details>
-  <summary>Request BTC Price in EUR and USD</summary>
+  <summary>Request BTC Price in EUR and USD using ArduinoJson Library</summary>
 
 ``` c
+#include <HTTPClient.h>
 #include <ArduinoJson.h>
 
 const char* serverName = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur";
@@ -121,6 +122,46 @@ void loop() {
   delay(60000);
 }
 ```
+</details>
+<details>
+  <summary>Request BTC Price in EUR and USD No Library</summary>
+
+  ```
+#include <HTTPClient.h>
+
+const char* serverName = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur";
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(serverName);
+    int httpCode = http.GET();
+
+    if (httpCode == 200) {
+      String payload = http.getString(); // Example: {"bitcoin":{"usd":43500,"eur":40100}}
+
+      // Extract USD
+      String usdKey = "\"usd\":";
+      int usdStart = payload.indexOf(usdKey) + usdKey.length();
+      int usdEnd = payload.indexOf(",", usdStart);
+      String usdPrice = payload.substring(usdStart, usdEnd);
+
+      // Extract EUR
+      String eurKey = "\"eur\":";
+      int eurStart = payload.indexOf(eurKey) + eurKey.length();
+      int eurEnd = payload.indexOf("}", eurStart); // EUR is the last item
+      String eurPrice = payload.substring(eurStart, eurEnd);
+
+      Serial.println("--- BTC Manual Parse ---");
+      Serial.println("USD: $" + usdPrice);
+      Serial.println("EUR: €" + eurPrice);
+    }
+    http.end();
+  }
+  delay(60000);
+}
+```
+
 </details>
 <details>
   <summary>T-Embed CC1101 Display</summary>
