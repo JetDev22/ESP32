@@ -74,6 +74,54 @@ void loop() {
 
 </details>
 <details>
+  <summary>Request BTC Price in EUR and USD</summary>
+
+``` c
+#include <ArduinoJson.h>
+
+const char* serverName = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur";
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+
+    // Begin the request
+    http.begin(serverName);
+    int httpResponseCode = http.GET();
+
+    if (httpResponseCode > 0) {
+      String payload = http.getString();
+      
+      // Parse JSON
+      JsonDocument doc;
+      DeserializationError error = deserializeJson(doc, payload);
+
+      if (!error) {
+        float btcUsd = doc["bitcoin"]["usd"];
+        float btcEur = doc["bitcoin"]["eur"];
+
+        Serial.println("--- Bitcoin Price ---");
+        Serial.print("USD: $");
+        Serial.println(btcUsd);
+        Serial.print("EUR: €");
+        Serial.println(btcEur);
+      } else {
+        Serial.print("JSON Parse failed: ");
+        Serial.println(error.c_str());
+      }
+    } else {
+      Serial.print("Error on HTTP request: ");
+      Serial.println(httpResponseCode);
+    }
+    
+    http.end();
+  }
+
+  // Wait 1 minute before next update (Free tier limit friendly)
+  delay(60000);
+}
+```
+</details>
   <summary>T-Embed CC1101 Display</summary>
 
   ```c
