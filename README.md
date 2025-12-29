@@ -122,6 +122,7 @@ void loop() {
 }
 ```
 </details>
+<details>
   <summary>T-Embed CC1101 Display</summary>
 
   ```c
