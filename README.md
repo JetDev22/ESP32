@@ -331,3 +331,37 @@ void loop(void)
   A Launcher app that lets you start different Firmwares from SD Card.
   -> <a href="https://github.com/bmorcelli/Launcher"><b>Launcher on Github</b></a>
 </details>
+<details>
+  <summary>Lilygo T-Embed CC1101 Deep Sleep Function</summary>
+  
+  ```c
+  #include <esp_sleep.h>
+
+// For T-Embed, GPIO 0 is usually the main button/encoder button
+#define WAKEUP_BUTTON GPIO_NUM_0 
+
+void goToSleep() {
+  Serial.println("Going to sleep now...");
+  
+  // 1. Configure the button to wake up the device
+  // Level 0 means it wakes up when the button is pressed (pulled LOW)
+  esp_sleep_enable_ext0_wakeup(WAKEUP_BUTTON, 0); 
+  
+  // 2. Start deep sleep
+  esp_deep_sleep_start();
+}
+void loop() {
+  // Example: Sleep if button is held for 3 seconds
+  if (digitalRead(WAKEUP_BUTTON) == LOW) {
+    delay(3000); 
+    if (digitalRead(WAKEUP_BUTTON) == LOW) {
+      digitalWrite(TFT_BL, LOW);          // Turn off backlight (usually GPIO 15 or 21)
+      tft.writecommand(0x10);             // Send "Sleep In" command to ST7789 controller
+      delay(5);                           // Short delay for the hardware to process
+      goToSleep();
+    }
+  }
+}
+  ```
+
+</details>
